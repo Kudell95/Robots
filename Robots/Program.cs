@@ -10,14 +10,14 @@ using Robots.Classes;
         
      static void Main(string[] args)
      {
-        //Initialise the board, will contain the list of available boards
+        //Initialise the board, will contain the list of available robots + active robot
         Board board = new Board();
-        board.Init();
+
+        Console.WriteLine("Enter Commands:");
 
         //Main Loop
         while(true)
         {
-            Console.WriteLine("Enter Command: ");
             string command = Console.ReadLine();
 
 
@@ -29,13 +29,16 @@ using Robots.Classes;
                 case "exit":
                     return;
                 case "move":
-                    board.ActiveRobot.Move();
+                    if(board.ActiveRobot != null)
+                        board.ActiveRobot.Move();
                     continue;
                 case "right":
-                    board.ActiveRobot.Right();
+                    if (board.ActiveRobot != null)
+                        board.ActiveRobot.Right();
                     continue;
                 case "left":
-                    board.ActiveRobot.Left();
+                    if (board.ActiveRobot != null)
+                        board.ActiveRobot.Left();
                     continue;
                 case "report":
                     board.Report();
@@ -57,10 +60,18 @@ using Robots.Classes;
 
                 f = param[2];
 
-                board.Place(x, y, f);
+                board.Place(x, y, f.ToLower());
 
 
                 continue;
+            }
+
+            if(command.ToLower().StartsWith("robot"))
+            {
+                string[] param = command.Split(' ')[1].Split(',');
+                int id;
+                Int32.TryParse(param[0], out id);
+                board.SelectRobot(id);
             }
 
             

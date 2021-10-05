@@ -13,23 +13,13 @@ namespace Robots.Classes
         public Robot ActiveRobot;
         public List<Robot> Robots = new List<Robot>();
 
-        public BoardSpace[,] spaces;
+        //could potentially also store a 2d array of board spaces, limiting one robot to a space.
 
-        public void Init()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    //spaces[i, j] = new BoardSpace();
-                }
-            }
-        }
 
         public void Place(int x, int y, string f)
         {
 
-            if ((x > 5 || x < 1) || (y > 5 || y < 1))
+            if ((x > 5 || x < 0) || (y > 5 || y < 0))
             {
                 Console.WriteLine(string.Format("failed to Place robot at x:{0} y:{1}", x, y));
                 return;
@@ -39,8 +29,14 @@ namespace Robots.Classes
             Vector2 pos = new Vector2(x, y);
             Robots.Add(new Robot() { Id = Robots.Count + 1, Position = pos, Direction = dir });
             ActiveRobot = Robots.Last();
-            Console.WriteLine(string.Format("Placed robot at x:{0} y:{1}", x, y));
 
+        }
+
+        public void SelectRobot(int id)
+        {
+            Robot robot = Robots.FirstOrDefault(i => i.Id == id);
+            if (robot != null) //check if the id is valid first, 
+                ActiveRobot = robot;
         }
 
         public void Report()
