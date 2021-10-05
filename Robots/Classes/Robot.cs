@@ -25,12 +25,11 @@ namespace Robots.Classes
         public void Right()
         {
             Direction = (DirTypes)(((int)Direction + 1) % 4);
-
         }
 
         public void Left()
         {
-            Direction = (DirTypes)(4 - ((int)Direction*-1) % 4);
+            Direction = (DirTypes)(((((int)Direction) - 1) % 4 + 4) % 4);
 
         }
 
