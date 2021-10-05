@@ -1,0 +1,7 @@
+C:\Users\Thorm\source\repos\Repo\Robots\Robots\bin\Debug\Robots.exe.config
+C:\Users\Thorm\source\repos\Repo\Robots\Robots\bin\Debug\Robots.exe
+C:\Users\Thorm\source\repos\Repo\Robots\Robots\bin\Debug\Robots.pdb
+C:\Users\Thorm\source\repos\Repo\Robots\Robots\obj\Debug\Robots.csproj.AssemblyReference.cache
+C:\Users\Thorm\source\repos\Repo\Robots\Robots\obj\Debug\Robots.csproj.CoreCompileInputs.cache
+C:\Users\Thorm\source\repos\Repo\Robots\Robots\obj\Debug\Robots.exe
+C:\Users\Thorm\source\repos\Repo\Robots\Robots\obj\Debug\Robots.pdb
