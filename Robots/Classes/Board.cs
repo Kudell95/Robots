@@ -43,7 +43,7 @@ namespace Robots.Classes
         {
             foreach (Robot robot in Robots)
             {
-                Console.WriteLine(string.Format("Robot {0} x:{1} y:{2} facing:{3}", robot.Id, robot.Position.X, robot.Position.Y, robot.Direction.ToString()));
+                Console.WriteLine(string.Format("Robot {0} report: x:{1} y:{2} facing:{3}", robot.Id, robot.Position.X, robot.Position.Y, robot.Direction.ToString()));
             }
         }
 

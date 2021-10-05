@@ -29,6 +29,8 @@ namespace Robots.Classes
 
         public void Left()
         {
+            //this looks ugly, but needed to wrap backwards when subtracting for the dir types.
+            //could probably be simplified
             Direction = (DirTypes)(((((int)Direction) - 1) % 4 + 4) % 4);
 
         }

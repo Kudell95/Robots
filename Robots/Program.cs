@@ -13,7 +13,7 @@ using Robots.Classes;
         //Initialise the board, will contain the list of available robots + active robot
         Board board = new Board();
 
-        Console.WriteLine("Enter Commands:");
+        Console.WriteLine("Enter Commands - type help for list of commands:");
 
         //Main Loop
         while(true)
@@ -46,19 +46,29 @@ using Robots.Classes;
                 case "clear":
                     Console.Clear();
                     continue;
+                case "reset":
+                    board = new Board();
+                    Console.Clear();
+                    Console.WriteLine("Enter Commands:");
+                    continue;
+                case "help":
+                case "?":
+                    Console.WriteLine("quit\nplace {x},{y},{f}\nrobot {id}\nmove\nright\nleft\nreport\nclear\nreset");
+                    break;
             }
 
+
+            //process the more complicated commands outside of the switch statement
             if (command.ToLower().StartsWith("place"))
             {
-                //process the parameters
-                string  f = string.Empty;
                 int x, y;
                 string[] param = command.Split(' ')[1].Split(',');
 
                 Int32.TryParse(param[0], out x);
                 Int32.TryParse(param[1], out y);
 
-                f = param[2];
+                //process the parameters
+                string f = param[2];
 
                 board.Place(x, y, f.ToLower());
 
@@ -72,6 +82,7 @@ using Robots.Classes;
                 int id;
                 Int32.TryParse(param[0], out id);
                 board.SelectRobot(id);
+                continue;
             }
 
             
