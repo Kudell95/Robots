@@ -1,0 +1,58 @@
+Test 1:
+place 0,0,North
+move
+move
+move
+right
+move
+move
+report
+
+Output: 
+Robot 1 report: x:2 y:3 facing:east
+
+
+Test 2:
+place 6,6,South
+
+Output:
+failed to Place robot at x:6 y:6
+
+
+Test 3:
+place 1,1,east
+place 0,0,north
+place 5,5,south
+robot 3
+move
+move
+move
+report
+
+Output:
+Robot 1 report: x:1 y:1 facing:east
+Robot 2 report: x:0 y:0 facing:north
+Robot 3 report: x:5 y:2 facing:south
+
+
+Test 4:
+place 5,5,east
+move
+report
+
+output:
+Robot 1 report: x:5 y:5 facing:east
+
+
+Test 5:
+place 1,1,north
+place 1,2,west
+robot 1
+move
+robot 2
+move
+report
+
+Output:
+Robot 1 report: x:1 y:2 facing:north
+Robot 2 report: x:0 y:2 facing:west

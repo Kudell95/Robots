@@ -9,16 +9,16 @@ namespace Robots.Classes
 {
     public class Board
     {
-        public static int MAXSIZE = 5;
+        public static int MAXSIZE = 5; //define max board size here
         public Robot ActiveRobot;
-        public List<Robot> Robots = new List<Robot>();
+        private List<Robot> Robots = new List<Robot>();
 
-        //could potentially also store a 2d array of board spaces, limiting one robot to a space.
+        //could potentially also store a 2d array of board spaces, storing information about robots placed on the board.
 
 
         public void Place(int x, int y, string f)
         {
-
+            //check if outside of bounds
             if ((x > 5 || x < 0) || (y > 5 || y < 0))
             {
                 Console.WriteLine(string.Format("failed to Place robot at x:{0} y:{1}", x, y));
@@ -27,9 +27,11 @@ namespace Robots.Classes
 
             Robot.DirTypes dir = (Robot.DirTypes)Enum.Parse(typeof(Robot.DirTypes), f.ToLower());
             Vector2 pos = new Vector2(x, y);
-            Robots.Add(new Robot() { Id = Robots.Count + 1, Position = pos, Direction = dir });
-            ActiveRobot = Robots.Last();
+            Robots.Add(new Robot(Robots.Count + 1, pos, dir));
 
+
+            if(Robots.Count == 1)
+                ActiveRobot = Robots.First();
         }
 
         public void SelectRobot(int id)

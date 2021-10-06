@@ -9,8 +9,8 @@ namespace Robots.Classes
 {
     public class Robot
     {
-        public Vector2 Position { get; set; }
-        public DirTypes Direction { get; set; }
+        public Vector2 Position { get; private set; }
+        public DirTypes Direction { get; private set; }
         public int Id { get; set; }
 
 
@@ -20,6 +20,14 @@ namespace Robots.Classes
             east,
             south,
             west
+        }
+
+
+        public Robot(int _id, Vector2 _pos, DirTypes _dir)
+        {
+            Id = _id;
+            Position = _pos;
+            Direction = _dir;
         }
 
         public void Right()
