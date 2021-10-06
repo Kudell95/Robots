@@ -64,6 +64,10 @@ using Robots.Classes;
                 int x, y;
                 string[] param = command.Split(' ')[1].Split(',');
 
+                //ensure all parameters are supplied
+                if (param.Length != 3)
+                    continue;
+
                 Int32.TryParse(param[0], out x);
                 Int32.TryParse(param[1], out y);
 
@@ -79,6 +83,11 @@ using Robots.Classes;
             if(command.ToLower().StartsWith("robot"))
             {
                 string[] param = command.Split(' ')[1].Split(',');
+
+                //ensure all parameters are supplied
+                if (param.Length != 1)
+                    continue;
+
                 int id;
                 Int32.TryParse(param[0], out id);
                 board.SelectRobot(id);
