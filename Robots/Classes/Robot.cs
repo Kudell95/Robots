@@ -64,13 +64,11 @@ namespace Robots.Classes
                         Position = new Vector2(Position.X - 1, Position.Y);
                     break;
             }
-
-
         }
 
         private bool ValidateNewPos(Vector2 pos)
         {
-            //If two robots couldn't be on the same square, this validation would probably need to move to the board
+            //If two robots couldn't be on the same square, this validation would probably need to move to the board 
             if ((pos.X > Board.MAXSIZE || pos.X < 0) || (pos.Y > Board.MAXSIZE || pos.Y < 0))
                 return false;
 

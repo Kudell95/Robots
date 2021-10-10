@@ -61,12 +61,25 @@ using Robots.Classes;
             //process the more complicated commands outside of the switch statement
             if (command.ToLower().StartsWith("place"))
             {
+                //ensure a param has been entered first
+                if (command.Split(' ').Count() <= 1)
+                {
+                    Console.WriteLine("Failed to Place robot, no parameters entered");
+                    continue;
+                }
+
                 int x, y;
                 string[] param = command.Split(' ')[1].Split(',');
 
-                //ensure all parameters are supplied
-                if (param.Length != 3)
+                //ensure all parameters are supplied and valid
+                if (param.Length != 3
+                    || string.IsNullOrEmpty(param[0])
+                    || string.IsNullOrEmpty(param[1])
+                    || string.IsNullOrEmpty(param[2]))
+                {
+                    Console.WriteLine("Failed to Place robot, not enough parameters or values are invalid");
                     continue;
+                }
 
                 Int32.TryParse(param[0], out x);
                 Int32.TryParse(param[1], out y);
@@ -82,11 +95,21 @@ using Robots.Classes;
 
             if(command.ToLower().StartsWith("robot"))
             {
+                //ensure a param has been entered first
+                if (command.Split(' ').Count() <= 1)
+                {
+                    Console.WriteLine("Failed to Place robot, no parameters entered");
+                    continue;
+                }
+
                 string[] param = command.Split(' ')[1].Split(',');
 
-                //ensure all parameters are supplied
-                if (param.Length != 1)
+                //ensure the parameter is supplied.
+                if (param.Length != 1 || string.IsNullOrEmpty(param[0]))
+                {
+                    Console.WriteLine("Failed to Place robot, not enough parameters or values are invalid");
                     continue;
+                }
 
                 int id;
                 Int32.TryParse(param[0], out id);
